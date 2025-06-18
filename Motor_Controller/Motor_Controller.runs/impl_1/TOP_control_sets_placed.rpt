@@ -1,0 +1,100 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Fri Nov 22 08:30:52 2024
+| Host         : Tharsan running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file TOP_control_sets_placed.rpt
+| Design       : TOP
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    22 |
+|    Minimum number of control sets                        |    22 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    71 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    22 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     5 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     2 |
+| >= 16              |     7 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              88 |           40 |
+| No           | No                    | Yes                    |               8 |            3 |
+| No           | Yes                   | No                     |             140 |           39 |
+| Yes          | No                    | No                     |              29 |           15 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              40 |           14 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+--------------+
+|      Clock Signal      |                          Enable Signal                         |                        Set/Reset Signal                        | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG         | b1_tx/r_SM_Main[2]                                             |                                                                |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG         | motor_controller_inst/UART_RX_NEW_inst/dir0_out                |                                                                |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG         | btn_c/eqOp                                                     |                                                                |                2 |              2 |         1.00 |
+|  clk_IBUF_BUFG         | Inst_TempSensorCtl/retryCnt[3]_i_2_n_0                         | Inst_TempSensorCtl/retryCnt[3]_i_1_n_0                         |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG         | Inst_TempSensorCtl/Inst_TWICtl/FSM_gray_state[3]_i_1_n_0       |                                                                |                3 |              4 |         1.33 |
+|  unitate_cc/E[0]       |                                                                |                                                                |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG         | b1_tx/r_TX_Data                                                |                                                                |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG         |                                                                | Inst_TempSensorCtl/Inst_TWICtl/busFreeCnt0_1                   |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG         |                                                                | btn_c/AR[0]                                                    |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG         | Inst_TempSensorCtl/Inst_TWICtl/sclCnt[7]_i_2_n_0               | Inst_TempSensorCtl/Inst_TWICtl/sclCnt0_0                       |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG         | Inst_TempSensorCtl/Inst_TWICtl/dataByte[7]_i_1_n_0             |                                                                |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG         | Inst_TempSensorCtl/Inst_TWICtl/temp1__0                        |                                                                |                2 |              8 |         4.00 |
+|  OneSecClock/clk_1_sec |                                                                |                                                                |                4 |             11 |         2.75 |
+|  clk_IBUF_BUFG         | b1_tx/r_Clk_Count                                              | b1_tx/r_Clk_Count0                                             |                4 |             14 |         3.50 |
+|  clk_IBUF_BUFG         | motor_controller_inst/UART_RX_NEW_inst/r_Clk_Count[13]_i_2_n_0 | motor_controller_inst/UART_RX_NEW_inst/r_Clk_Count[13]_i_1_n_0 |                6 |             14 |         2.33 |
+|  clk_IBUF_BUFG         |                                                                | Inst_TempSensorCtl/clear                                       |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG         |                                                                | vibrationCountInternal[0]_i_1_n_0                              |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG         |                                                                | afisor/Num[0]_i_1_n_0                                          |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG         |                                                                | Inst_TempSensorCtl/Inst_TWICtl/timeOutCnt0                     |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG         |                                                                | motor_controller_inst/module1/counter0_carry__1_n_3            |                7 |             26 |         3.71 |
+|  clk_IBUF_BUFG         |                                                                | OneSecClock/p_0_in                                             |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG         |                                                                |                                                                |               33 |             72 |         2.18 |
++------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+--------------+
+
+
